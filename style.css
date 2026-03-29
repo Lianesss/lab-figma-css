@@ -1,0 +1,379 @@
+body{
+    background-color: #FFB800;
+    display: flex;
+    /* все что внутри блока боди центрируй */
+    justify-content: center; /* gorizont */
+    align-items: center; /* vertical */
+    padding: clamp(10px, 2vw, 20px); /* Гибкие отступы вокруг карточки */
+    margin: 0;
+
+    min-height: 100vh;
+    box-sizing: border-box;
+    
+}
+
+.hero{
+    background-color: #F9F4F0;
+    padding: clamp(20px, 5vw, 40px) clamp(20px, 5vw, 70px);
+
+    width: 95%;
+    /* брейкпоинт */
+    max-width: 1400px;
+    margin: 0 auto;    /* Центрируем по горизонтали */
+    
+    border-radius: 40px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+
+    display: flex;
+    flex-direction: column;
+
+    min-height: 0vh;
+    max-height: 98vh;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.navbar__logo{
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+    text-decoration: none;
+}
+
+.navbar__logo__img{
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    display: block;
+}
+
+.navbar__logo__text{
+    font-size: 30px;
+    font-weight: 800;
+    color: #333;
+    font-family: sans-serif;
+}
+
+.navbar__list{
+    display: flex;
+    list-style: none;
+    gap: clamp(10px, 2vw, 35px); /* отступ будет меняться от 10px до 35px в зависимости от ширины экрана */
+}
+
+.navbar__link{
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    font-size: 16px;
+    font-family: sans-serif;
+    transition: color 0.3s;
+}
+
+.navbar__link:hover{
+    color: #FF7A00;
+}
+
+.navbar__search-wrapper{
+    display: flex;
+    align-items: center;
+    background-color: #FFF;
+    padding: 8px 5px;
+    border-radius: 50px;
+    border: 1px solid #eaeaea;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+
+    /* брейкпоинт */
+    flex: 0 1 300px; /* Овал может расти до 300px, но будет сжиматься, если места мало */
+    min-width: 150px;
+    margin-left: 20px;
+}
+
+.navbar__search-icon{
+    width: 18px;
+    height: 18px;
+    opacity: 0.5;
+}
+.navbar__search-input{
+    border: none;
+    outline: none; /* Убираеn обводку при клике */
+    padding: 0 10px;
+    font-size: 14px;
+    color: #333;
+    width: 120px;
+    flex: 1; /* Инпут заберет всё свободное место ВНУТРИ овала */
+    min-width: 50px; /* брейкпоинт */
+    transition: 0.4s;
+}
+
+.navbar__search-input:focus{ /* псевдокласс при нажатии */
+    width: 180px;
+}
+
+.navbar__cart{
+    display: flex;
+    align-items: center;
+    position: relative;
+    text-decoration: none;
+    margin-left: 5px;
+}
+
+.navbar__cart-icon{
+    width: 20px;
+    height: 20px;
+    display: block;
+   
+}
+
+.navbar__cart-count{
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background-color: red;
+    color: #FFF;
+    font-size: 11px;
+    font-weight: 800;
+    font-family: sans-serif;
+
+    width: 16px;
+    height: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    box-shadow: 0 0 12px rgba(255, 122, 0, 0.6)
+}
+
+.navbar__divider {
+    width: 1px;               
+    height: 20px;            
+    background-color: #EAEAEA; 
+    margin: 0 10px;           
+    flex-shrink: 0;           /* Чтобы палочка не сплющилась при сжатии окна */
+}
+
+.hero__content{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 1;
+    min-height: 0;
+    margin-top: clamp(20px, 3vw, 40px);
+    gap: 20px;
+}
+
+.hero__info,
+.hero__image {
+    flex: 1;                /* Делят место честно пополам */
+    width: 100%;            /* Для адаптивности */
+}
+
+.hero__image{
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+    max-height: 100%;
+}
+
+.hero__main-img {
+    max-width: 100%;  
+    max-height: 65vh;    
+    height: auto;  
+    object-fit: contain;         
+    transition: transform 0.5s; 
+}
+
+.hero__content:hover .hero__main-img {
+    transform: translateY(-10px);
+}
+
+.hero__order-btn{
+    padding: 15px 30px;
+    background-color: #333;
+    color: #FFF;
+    padding: 18px 40px;
+    border-radius: 50px;
+    border: none;
+    font-size: 18px;
+    font-weight: 700;
+    transition: 0.3s;
+    font-family: sans-serif;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.hero__order-btn:hover {
+    background-color: #FF7A00; 
+    transform: translateY(-3px); 
+}
+
+.hero__actions{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: clamp(25px, 4vw, 50px);
+}
+
+.hero__video-link{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 700;
+    font-size: 18px;
+    font-family: sans-serif;
+    transition: 0.3s;
+}
+
+.hero__video-link:hover {
+    color: #FF7A00;   
+    transform: translateY(-3px);      
+}
+
+.hero__video-icon {
+    width: 45px;
+    height: 45px;
+    background-color: #fff; 
+    border-radius: 50%;    
+    
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+    
+    color: #FF7A00;       
+    font-size: 16px;       
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+    flex-shrink: 0;         /* Чтобы круг не сплющило при сужении окна */
+}
+
+
+.hero__video-link:hover .hero__video-icon {
+    transform: scale(1.1); 
+    box-shadow: 0 15px 30px rgba(255, 122, 0, 0.2); /* Оранжевая тень */
+}
+
+
+.hero__title{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-family: sans-serif; 
+    font-weight: 900;
+    letter-spacing: -2px;  /* Сближаем буквы, чтобы текст был монолитным */
+    margin-bottom: 20px;
+}
+
+.hero__title-orange {
+    color: #FF7A00;
+    font-size: clamp(80px, 12vw, 150px); 
+    line-height: 0.8;       /* сжимаем его по высоте */
+}
+
+.hero__title-stack {
+    display: flex;
+    flex-direction: column; 
+    
+    font-size: clamp(35px, 5.5vw, 68px); 
+    color: #333;
+    line-height: 0.9;       /* Чтобы Food и Delivery почти касались друг друга */
+    text-transform: none;
+}
+
+.hero__text {
+    font-family: sans-serif;
+    font-size: 20px;
+    color: #828282;       
+    line-height: 1.4;
+    max-width: 520px;
+    margin-bottom: 40px;
+}
+
+.hero__rating{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 35px;
+}
+
+.hero__stars {
+    color: #FFB800;       
+    font-size: 20px;        
+    letter-spacing: 2px;   
+}
+
+.hero__rating-text {
+    display: flex;
+    flex-direction: column; 
+    gap: 2px;
+}
+
+.hero__rating-title {
+    font-family: sans-serif;
+    font-size: 18px;       
+    font-weight: 600;    
+    color: #333;
+}
+
+.hero__rating-count {
+    font-family: sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: #828282;      
+}
+
+@media (max-width: 992px) {
+    .hero {
+        max-height: none; /* Разрешаем карточке расти вниз */
+        margin: 20px 0;
+    }
+
+    .hero__content {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .hero__info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero__title {
+        justify-content: center;
+    }
+
+    .hero__text {
+        margin: 0 auto 30px auto;
+        font-size: 18px; /* Чуть уменьшили текст для мобилок */
+    }
+
+    .hero__actions {
+        justify-content: center;
+        flex-wrap: wrap; /* Чтобы кнопки не слиплись */
+    }
+
+    .hero__rating {
+        align-items: center;
+    }
+
+    .hero__main-img {
+        max-height: 40vh; /* На мобилке картинка поменьше */
+    }
+}
+
+/* Совсем маленькие экраны (телефоны) */
+@media (max-width: 480px) {
+    .hero__title-orange { font-size: 80px; }
+    .hero__title-stack { font-size: 35px; }
+    .hero { padding: 20px 30px; } /* Уменьшаем внутренние отступы */
+}
