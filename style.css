@@ -40,6 +40,8 @@ body{
 
     width: 100%;
     margin-bottom: 20px;
+    flex-wrap: wrap; /* Позволяет элементам падать на вторую строку */
+    gap: 15px;
 }
 
 .navbar__logo{
@@ -371,9 +373,41 @@ body{
     }
 }
 
-/* Совсем маленькие экраны (телефоны) */
 @media (max-width: 480px) {
     .hero__title-orange { font-size: 80px; }
     .hero__title-stack { font-size: 35px; }
     .hero { padding: 20px 30px; } /* Уменьшаем внутренние отступы */
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; 
+        gap: 20px;
+    }
+
+    .navbar__list {
+        display: flex; 
+        justify-content: center;
+        width: 100%;
+        padding: 0;
+        order: 2;              /* Ставим меню вторым после логотипа */
+    }
+
+    .navbar__search-wrapper {
+        order: 3;              /* Поиск уходит в самый низ шапки */
+        margin-left: 0;
+        width: 100%;
+        max-width: none;
+    }
+    
+    .navbar__logo {
+        order: 1;              /* Логотип всегда первый сверху */
+    }
+
+    .navbar__header-top {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        align-items: center;
+    }
 }
